@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Hustle Culture Test</title>
+    <style src="css/styles.css"></style>
+    <style>
+        @media (max-width: 480px) {
+            html {
+                font-size: 14px;
+            }
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Koulen&family=Lemon&family=Londrina+Solid&family=Poppins:wght@400;500;600;700;900&family=Russo+One&display=swap" rel="stylesheet">
+    <style>
+        .gradient-header {
+            background: linear-gradient(90deg, #FFAB78 0%, #F16D88 100%);
+        }
+        .main-card {
+            background: linear-gradient(270deg, #F16D88 0%, #FFAB78 99.97%);
+        }
+        .option-card {
+            background: radial-gradient(50% 50% at 50% 50%, #FFFFFF 0%, #FFB8C5 99.99%);
+        }
+        .start-button {
+            background: #FFFBDC;
+            border: 2px solid #FF6B86;
+        }
+        .hustle-info {
+            background: #FFF7B8;
+        }
+        .question-section {
+            background: #FF6B86;
+        }
+        .question-card {
+            background: #FFFBDC;
+        }
+        .question-item {
+            margin-bottom: 1.5rem;
+        }
+        .result-button {
+            background: #FF575A;
+        }
+        .footer {
+            background: #B50036;
+        }
+        .climate-crisis {
+            font-family: 'Climate Crisis', sans-serif;
+        }
+        .koulen {
+            font-family: 'Koulen', sans-serif;
+        }
+        .russo-one {
+            font-family: 'Russo One', sans-serif;
+        }
+        .poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+        .lemon {
+            font-family: 'Lemon', serif;
+        }
+        .londrina {
+            font-family: 'Londrina Solid', cursive;
+        }
+        .question-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background: #fff8f0;
+    border-radius: 20px;
+}
+
+.question-text {
+    flex: 1;
+    font-size: 16px;
+    margin: 0;
+    font-weight: 500;
+}
+
+.radio-group {
+    display: flex;
+    gap: 15px;
+    margin-left: 20px;
+}
+
+.custom-radio {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.custom-radio input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: relative;
+    transition: 0.2s;
+}
+
+.custom-radio input[type="radio"]:checked {
+    border-color: #ff6f91;
+    background-color: #ff6f91;
+}
+
+.radio-label {
+    display: none; /* sembunyikan label teks (Ya/Tidak), kalau kamu cuma mau bulatan aja */
+}
+ /* Footer Styles */
+        .footer {
+            width: 100%;
+            min-height: 119px;
+            background: #B50036;
+            position: relative;
+            margin-top: auto; /* Pushes footer to bottom */
+            display: flex;
+            flex-direction: column;
+            padding: 10px 0;
+        }
+
+        .footer-content {
+            max-width: 440px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            height: 100%;
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+
+        .made-with-love {
+            font-family: 'Lemon', cursive;
+            color: white;
+            font-size: 20px;
+            line-height: 26px;
+            margin: 4px 0;
+            width: 213px;
+        }
+
+        .names {
+            font-family: 'Londrina Solid', cursive;
+            color: white;
+            font-size: 12px;
+            line-height: 14px;
+            margin: 4px 0;
+            width: 132px;
+        }
+
+        .separator {
+            position: absolute;
+            height: 80px;
+            border-left: 1px solid white;
+            left: 50%;
+            top: 20px;
+            transform: translateX(-50%);
+        }
+
+        .contact-info {
+            position: absolute;
+            right: 24px;
+            top: 16px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-item {
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            color: #FFFBDC;
+            font-size: 8px;
+            line-height: 12px;
+            margin-top: 4px;
+        }
+
+        .footer-text {
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            font-size: 8px;
+            line-height: 12px;
+            position: absolute;
+            right: 24px;
+            bottom: 8px;
+            width: 165px;
+            text-align: right;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 600px) {
+            .made-with-love {
+                font-size: 16px;
+                line-height: 22px;
+            }
+            
+            .names {
+                font-size: 10px;
+            }
+            
+            .separator {
+                left: 60%;
+            
+            }
+            
+            .contact-info {
+                right: 10px;
+            }
+            
+            .footer-text {
+                width: 140px;
+                font-size: 7px;
+                right: 10px;
+                bottom: -30px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .separator {
+                display: none;
+            }
+            
+            .contact-info {
+                position: static;
+                margin-top: 10px;
+                align-items: flex-end;
+            }
+            
+            .footer-text {
+                position: static;
+                width: 100%;
+                text-align: center;
+                margin-top: 10px;
+            }
+        }
+                .font-climate-crisis {
+            font-family: 'Climate Crisis', cursive;
+        }
+        .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+        .text-stroke-black {
+            -webkit-text-stroke: 0.5px #000;
+        }
+        .text-shadow-md {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.25);
+        }
+        .gradient-top-rotated {
+            background: linear-gradient(180deg, rgba(217,217,217,0) -4.62%, #FFFBDC 95.38%);
+            transform: rotate(180deg);
+        }
+        .gradient-blob {
+            background: radial-gradient(50% 50% at 50% 50%, #A91C00 0%, #FF5100 40.38%, #E0AD9D 100%);
+            filter: blur(25px);
+        }
+        .gradient-bottom-rotated {
+            background: linear-gradient(0deg, rgba(217,217,217,0) -4.62%, #FF6B86 95.38%);
+            transform: rotate(180deg);
+        }
+
+        /* Responsive font sizes using clamp for better control */
+        .text-climate-sm-md {
+            font-size: clamp(14px, 3.5vw, 18px);
+        }
+        .text-climate-md-lg {
+            font-size: clamp(18px, 5vw, 24px);
+        }
+        .text-poppins-xs-sm {
+            font-size: clamp(10px, 2.5vw, 12px);
+        }
+        .text-poppins-xxs-xs {
+            font-size: clamp(8px, 2vw, 10px);
+        }
+
+        /* For larger screens (md breakpoint in Tailwind) */
+        @media (min-width: 768px) {
+            .md\:text-climate-lg {
+                font-size: 20px;
+            }
+            .md\:text-climate-xl {
+                font-size: 28px;
+            }
+            .md\:text-poppins-sm {
+                font-size: 14px;
+            }
+            .md\:text-poppins-xs {
+                font-size: 12px;
+            }
+        }
+
+
+    </style>
+</head>
+<body class="relative w-full min-h-screen bg-[#FFFBDC] overflow-x-hidden">
+    <!-- Header -->
+   <div class="w-full h-11 gradient-header flex items-center justify-between px-4">
+    <!-- Kiri (Gambar pertama) -->
+    <div class="w-[215px] h-full flex items-center">
+        <img src="pg1img/trisulong.png" alt="Illustration" class="max-w-full max-h-full object-contain">
+    </div>
+
+    <!-- Tengah (Tulisan) -->
+    <div class="koulen text-white text-2xl leading-[43px] text-shadow-md text-center">
+        welkam
+    </div>
+
+    <!-- Kanan (Gambar kedua, MEPT KE KANAN) -->
+    <div class="w-[215px] h-full flex items-center justify-end">
+        <img src="pg1img/trisulong.png" alt="Illustration" class="max-w-full max-h-full object-contain">
+    </div>
+</div>
+
+        <div class="absolute right-4">
+            <svg width="49" height="58" viewBox="0 0 49 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0H49V58H0V0Z" fill="url(#pattern0)"/>
+                <defs>
+                    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                        <use xlink:href="#image0_1_28" transform="scale(0.01)"/>
+                    </pattern>
+                </defs>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Main Card -->
+    <div class="w-full max-w-[95%] min-h-[175px] mx-auto mt-4 main-card rounded-2xl relative overflow-hidden p-4 flex">
+        <!-- Text Container -->
+        <div class="flex-1 flex flex-col justify-center">
+            <div class="russo-one text-white text-lg leading-tight text-shadow-md mb-2">
+                KAMU PRODUKTIF ATAU.... KELEWAT SIBUK?
+            </div>
+            <div class="poppins text-black text-xs leading-snug">
+                Kenali apakah kamu sedang berada di jalur sehat atau terjebak hustle culture tanpa sadar!
+            </div>
+        </div>
+        
+        <!-- Image Container -->
+        <div class="w-[215px] h-full flex items-center justify-center">
+            <img src="pg1img/bungong hade.png" alt="Illustration" class="max-w-full max-h-full object-contain">
+        </div>
+    </div>
+
+    <!-- Option Cards -->
+    <div class="w-full max-w-[95%] min-h-[54px] mx-auto mt-4 option-card border border-black rounded-2xl flex items-center p-4">
+        <div class="league-spartan text-base leading-tight text-black"><span class="font-bold">Kenalan</span> dulu sama <span class="font-bold">Hustle Culture</span> yuk!</div>
+    </div>
+
+    <div class="w-full max-w-[95%] min-h-[54px] mx-auto mt-4 option-card rounded-2xl flex items-center p-4 border border-black">
+        <div class="league-spartan text-base leading-tight text-black">Kira-kira aku ada <span class="font-bold">risiko Hustle Culture</span> ga ya?</div>
+    </div>
+
+    <div class="w-full max-w-[95%] min-h-[54px] mx-auto mt-4 option-card rounded-2xl flex items-center p-4 border border-black">
+        <div class="league-spartan text-base leading-tight text-black">Bantu kasih kami <span class="font-bold">feedback</span> ya! &lt;3</div>
+    </div>
+
+    <!-- Start Button -->
+   <!-- Tombol Scroll -->
+<button id="scrolling" class="w-full max-w-[210px] h-[54px] mx-auto mt-4 start-button rounded-2xl border-2 border-[#FF6B86] flex items-center justify-center cursor-pointer active:bg-[#FFF7B8] transition">
+    <div class="league-spartan font-bold text-2xl text-black">Let's Start!</div>
+</button>
+
+
+    <!-- Hustle Culture Info - FIXED VERSION -->
+     <div class="relative mx-auto" style="width: 400px;">
+
+     </div>
+<div class="relative mx-auto" style="width: 440px; height: 700px; background: #FFF7B8; position: relative;">
+        <div style="position: absolute; top: 0; width: 100%; height: 119px; background: linear-gradient(180deg, rgba(217,217,217,0) -4.62%, #FFFBDC 95.38%); transform: rotate(180deg);"></div>
+
+    <!-- Gradient Blob -->
+    <div style="position: absolute; right: 35px; top: 230px; width: 164px; height: 257px; background: radial-gradient(50% 50% at 50% 50%, #A91C00 0%, #FF5100 40.38%, #E0AD9D 100%); filter: blur(25px); border-radius: 42px;"></div>
+
+    <!-- Gradient Bottom -->
+<div style="position: absolute; bottom: 0; width: 100%; height: 119px; 
+           background: linear-gradient(0deg, rgba(217,217,217,0) -4.62%, #FF6B86 95.38%); 
+           transform: rotate(180deg);">
+</div>
+    <!-- Title Section -->
+
+    <!-- Subtitle Titles -->
+<div class="relative mx-auto"  style="position: absolute; top: 64px; left:165px; width: 100px; height: 19px; font-family: 'Climate Crisis'; font-size: 14px; line-height: 19px; color: #FF6B86; -webkit-text-stroke: 0.5px #000; text-shadow: 0 2px 4px rgba(0,0,0,0.25); text-align: center;">Apa itu</div>
+    <div class="relative mx-auto" style="position: absolute; top: 82px; left: 90px; width: 250px; height: 21px; font-family: 'Climate Crisis'; font-size: 16px; line-height: 21px; color: #FF005C; -webkit-text-stroke:0.5px #000; text-shadow: 0 2px 4px rgba(0,0,0,0.25); text-align: center;">Hustle Culture?</div>
+
+    <!-- Description Box -->
+    <div style="position: absolute; top: 120px; left: 10px; width: 350px; height: 95px; background: #FFFBDC; border: 2px solid #000; border-radius: 36px; padding: 12px; text-align: justify;">
+        <p style="font-family: 'Poppins'; font-size: 10px; font-weight: 700; line-height: 15px; color: #000;" >
+           <span class="font-bold"> Hustle culture</span> adalah budaya yang mengagungkan kesibukan dan kerja tanpa henti sebagai tanda keberhasilan. Dalam <span class="font-bold"> hustle culture</span>, orang merasa harus selalu produktif dan sibuk—kalau tidak, mereka dianggap malas atau tidak ambisius.
+        </p>
+    </div>
+
+    <!-- Example Box -->
+    <div style="position: absolute; top: 225px; left: 10px; width: 214px; height: 89px; background: #FFFBDC; border: 2px solid #000; border-radius: 36px; padding: 8px; text-align: justify;">
+        <p style="font-family: 'Poppins'; font-size: 10px; font-weight: 700; line-height: 15px; color: #000;">
+            Contoh sederhana: "Kalau kamu merasa bersalah saat rebahan sebentar aja karena merasa harus terus kerja, bisa jadi kamu udah terpapar hustle culture."
+        </p>
+    </div>
+
+    <!-- Decorative Stars -->
+    
+
+
+        <!-- Difference Title -->
+        <div style="position :absolute; top: 325px; left:30px; width: 195px; height: 19px; font-family: 'Climate Crisis'; font-size: 14px; line-height: 19px; color: #FF6B86; -webkit-text-stroke: 0.5px #000; text-shadow: 0 2px 4px rgba(0,0,0,0.25);">Apa bedanya sama</div>
+        <div style="position: absolute; top: 345px; left:60px; width: 135px; height: 21px; font-family: 'Climate Crisis'; font-size: 16px; line-height: 21px; color: #FF005C; -webkit-text-stroke: 0.5px #000; text-shadow: 0 2px 4px rgba(0,0,0,0.25);">Produktif?</div>
+
+         <div style="position: absolute; top: 0; right: 80px; width:130px; height: 100%; display: flex; align-items: center; justify-content: center;">
+    <img src="pg1img/image yang itu.png" alt="Illustration" style="max-width: 100%; max-height: 100%; object-fit: contain;"></div>
+
+        <div style="position: absolute; bottom: 140px; left: 40px; width:165px; height: auto; display: flex; align-items: center; justify-content: center;">
+    <img src="pg1img/tabel.png" alt="Tabel" style="max-width: 100%; max-height: 200px; object-fit: contain;">
+</div>
+
+        <!-- Difference Quote -->
+        <div style="position: absolute; top:460px; right:85px; width: 140px; height: 35px; font-family: 'Poppins'; font-style: italic; font-weight: 600; font-size: 8px; line-height: 12px; color: #000000; text-align: center;">
+            "Produktif itu sehat. Tapi kalau kamu merasa gak boleh berhenti sejenak, itu tanda hustle culture."
+        </div>
+
+    </div>
+
+     <!-- Questions Section -->
+      
+     <div class="w-full relative"> <!-- Container utama -->
+    <!-- Rectangle tambalan di atas -->
+     <div id="questionbang"></div>
+    <div class="w-full h-[100px] bg-[#FF6B86] absolute top-0 left-0"></div>
+    <div class="w-full bg-[#FF6B86] mt-8 px-4 pt-8 pb-8 relative">
+        <div class="w-full max-w-[350px] min-h-[54px] mx-auto bg-[#9B0000] border-2 border-black rounded-lg flex items-center justify-center p-2">
+            <p class="poppins font-black text-xs leading-[18px] text-center text-white">
+                Kamu penasaran apakah diri kamu terjebak dalam Hustle Culture atau tidak???
+            </p>
+        </div>
+
+
+        <div class="relative w-i mt-8 mx-auto">
+            <div class="absolute left-4 top-0 w-2 h-7 bg-[#FF7B7B] border border-black rounded-md transform -rotate-12"></div>
+            <div class="absolute right-4 top-0 w-2 h-7 bg-[#FF7B7B] border border-black rounded-md transform rotate-12"></div>
+            <p class="poppins font-medium text-xs leading-[18px] text-center text-black w-50 mx-auto px-3" style="width:90%;">
+                Coba jawab pertanyaan-pertanyaan di bawah ini sesuai dengan kondisi kamu ya! (YA: KIRI - TIDAK: KANAN)
+            </p>
+            <div class="absolute left-4 top-7 w-2 h-2 bg-[#FF7B7B] border border-black rounded-full"></div>
+            <div class="absolute right-4 top-7 w-2 h-2 bg-[#FF7B7B] border border-black rounded-full"></div>
+        </div>
+
+
+        
+        <!-- Questions -->
+<div class="questions-container mt-12 space-y-6 pb-8" id="quizForm">
+                <!-- Question 1 -->
+
+            <!-- Repeat similar structure for all 20 questions -->
+            <!-- Pertanyaan 1–20 -->
+<div class="question-item">
+    <div class="question-box">
+        <p class="question-text">1. Apakah kamu sering merasa bersalah saat beristirahat?</p>
+    </div>
+    <div class="radio-group">
+        <label class="custom-radio">
+            <input type="radio" name="q1" value="1" required>
+            <span class="radio-label">Ya</span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="q1" value="0" required>
+            <span class="radio-label">Tidak</span>
+        </label>
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-box">
+        <p class="question-text">2. Apakah kamu merasa harus selalu sibuk agar merasa bernilai?</p>
+    </div>
+    <div class="radio-group">
+        <label class="custom-radio">
+            <input type="radio" name="q2" value="1" required>
+            <span class="radio-label">Ya</span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="q2" value="0" required>
+            <span class="radio-label">Tidak</span>
+        </label>
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-box">
+        <p class="question-text">3. Apakah kamu menghindari waktu santai karena merasa itu buang-buang waktu?</p>
+    </div>
+    <div class="radio-group">
+        <label class="custom-radio">
+            <input type="radio" name="q3" value="1" required>
+            <span class="radio-label">Ya</span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="q3" value="0" required>
+            <span class="radio-label">Tidak</span>
+        </label>
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-box">
+        <p class="question-text">4. Apakah kamu sering membawa pekerjaan ke waktu pribadi?</p>
+    </div>
+    <div class="radio-group">
+        <label class="custom-radio">
+            <input type="radio" name="q4" value="1" required>
+            <span class="radio-label">Ya</span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="q4" value="0" required>
+            <span class="radio-label">Tidak</span>
+        </label>
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-box">
+        <p class="question-text">5. Apakah kamu merasa cemas kalau tidak mengerjakan sesuatu?</p>
+    </div>
+    <div class="radio-group">
+        <label class="custom-radio">
+            <input type="radio" name="q5" value="1" required>
+            <span class="radio-label">Ya</span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="q5" value="0" required>
+            <span class="radio-label">Tidak</span>
+        </label>
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-box">
+        <p class="question-text">6. Apakah kamu mengabaikan kelelahan demi menyelesaikan pekerjaan?</p>
+    </div>
+    <div class="radio-group">
+        <label class="custom-radio">
+            <input type="radio" name="q6" value="1" required>
+            <span class="radio-label">Ya</span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="q6" value="0" required>
+            <span class="radio-label">Tidak</span>
+        </label>
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-box">
+        <p class="question-text">7. Apakah kamu bekerja lebih dari 10 jam per hari tanpa jeda yang cukup?</p>
+    </div>
+    <div class="radio-group">
+        <label class="custom-radio">
+            <input type="radio" name="q7" value="1" required>
+            <span class="radio-label">Ya</span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="q7" value="0" required>
+            <span class="radio-label">Tidak</span>
+        </label>
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-box">
+        <p class="question-text">8. Apakah kamu merasa harus produktif setiap saat, bahkan saat akhir pekan?</p>
+    </div>
+    <div class="radio-group">
+        <label class="custom-radio">
+            <input type="radio" name="q8" value="1" required>
+            <span class="radio-label">Ya</span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="q8" value="0" required>
+            <span class="radio-label">Tidak</span>
+        </label>
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-box">
+        <p class="question-text">9. Apakah kamu merasa bersaing dengan teman dalam hal kesibukan atau prestasi?</p>
+    </div>
+    <div class="radio-group">
+        <label class="custom-radio">
+            <input type="radio" name="q9" value="1" required>
+            <span class="radio-label">Ya</span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="q9" value="0" required>
+            <span class="radio-label">Tidak</span>
+        </label>
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-box">
+        <p class="question-text">10. Apakah kamu sulit menolak pekerjaan tambahan?</p>
+    </div>
+    <div class="radio-group">
+        <label class="custom-radio">
+            <input type="radio" name="q10" value="1" required>
+            <span class="radio-label">Ya</span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="q10" value="0" required>
+            <span class="radio-label">Tidak</span>
+        </label>
+    </div>
+</div>
+
+<!-- Lanjut ke pertanyaan 11-20 -->
+
+<div class="question-item">
+    <div class="question-box">
+        <p class="question-text">11. Apakah kamu tidur kurang dari 6 jam karena pekerjaan atau tugas?</p>
+    </div>
+    <div class="radio-group">
+        <label class="custom-radio">
+            <input type="radio" name="q11" value="1" required>
+            <span class="radio-label">Ya</span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="q11" value="0" required>
+            <span class="radio-label">Tidak</span>
+        </label>
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-box">
+        <p class="question-text">12. Apakah kamu sering lupa makan atau menunda makan karena terlalu sibuk?</p>
+    </div>
+    <div class="radio-group">
+        <label class="custom-radio">
+            <input type="radio" name="q12" value="1" required>
+            <span class="radio-label">Ya</span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="q12" value="0" required>
+            <span class="radio-label">Tidak</span>
+        </label>
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-box">
+        <p class="question-text">13. Apakah kamu merasa prestasi hanya bisa diraih lewat kerja keras nonstop?</p>
+    </div>
+    <div class="radio-group">
+        <label class="custom-radio">
+            <input type="radio" name="q13" value="1" required>
+            <span class="radio-label">Ya</span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="q13" value="0" required>
+            <span class="radio-label">Tidak</span>
+        </label>
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-box">
+        <p class="question-text">14. Apakah kamu merasa bersalah jika berlibur terlalu lama?</p>
+    </div>
+    <div class="radio-group">
+        <label class="custom-radio">
+            <input type="radio" name="q14" value="1" required>
+            <span class="radio-label">Ya</span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="q14" value="0" required>
+            <span class="radio-label">Tidak</span>
+        </label>
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-box">
+        <p class="question-text">15. Apakah kamu jarang menghabiskan waktu dengan keluarga karena pekerjaan?</p>
+    </div>
+    <div class="radio-group">
+        <label class="custom-radio">
+            <input type="radio" name="q15" value="1" required>
+            <span class="radio-label">Ya</span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="q15" value="0" required>
+            <span class="radio-label">Tidak</span>
+        </label>
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-box">
+        <p class="question-text">16. Apakah kamu merasa lelah setiap hari namun tetap memaksakan diri bekerja?</p>
+    </div>
+    <div class="radio-group">
+        <label class="custom-radio">
+            <input type="radio" name="q16" value="1" required>
+            <span class="radio-label">Ya</span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="q16" value="0" required>
+            <span class="radio-label">Tidak</span>
+        </label>
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-box">
+        <p class="question-text">17. Apakah kamu merasa bahwa kesuksesan = kerja keras terus-menerus?</p>
+    </div>
+    <div class="radio-group">
+        <label class="custom-radio">
+            <input type="radio" name="q17" value="1" required>
+            <span class="radio-label">Ya</span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="q17" value="0" required>
+            <span class="radio-label">Tidak</span>
+        </label>
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-box">
+        <p class="question-text">18. Apakah kamu jarang melakukan hobi karena merasa tidak produktif?</p>
+    </div>
+    <div class="radio-group">
+        <label class="custom-radio">
+            <input type="radio" name="q18" value="1" required>
+            <span class="radio-label">Ya</span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="q18" value="0" required>
+            <span class="radio-label">Tidak</span>
+        </label>
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-box">
+        <p class="question-text">19. Apakah kamu sering menunda kunjungan dokter karena sibuk bekerja?</p>
+    </div>
+    <div class="radio-group">
+        <label class="custom-radio">
+            <input type="radio" name="q19" value="1" required>
+            <span class="radio-label">Ya</span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="q19" value="0" required>
+            <span class="radio-label">Tidak</span>
+        </label>
+    </div>
+</div>
+
+<div class="question-item">
+    <div class="question-box">
+        <p class="question-text">20. Apakah kamu merasa tidak punya waktu untuk dirimu sendiri?</p>
+    </div>
+    <div class="radio-group">
+        <label class="custom-radio">
+            <input type="radio" name="q20" value="1" required>
+            <span class="radio-label">Ya</span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="q20" value="0" required>
+            <span class="radio-label">Tidak</span>
+        </label>
+    </div>
+</div>
+
+
+        <!-- Result Button -->
+       <button
+  id="submitBtn"
+  class="w-[164px] h-11 bg-[#FF575A] border-2 border-black shadow-md rounded-[22px] mx-auto mt-8 flex items-center justify-center cursor-pointer hover:bg-[#D00000] transition poppins font-black text-base leading-6 text-white"
+  style="-webkit-text-stroke: 0.5px black; text-stroke: 0.5px black;"
+>
+  Show My Result
+</button>
+
+    </div>
+
+     <footer class="footer">
+        <div class="footer-content">
+            <p class="made-with-love">Made With Love n Reasons By</p>
+            <p class="names">~Jul, Chia, Agita, Athifa, Luna</p>
+            
+            <div class="separator"></div>
+            
+            <div class="contact-info">
+                <p class="contact-item">+62 851-5514-1197</p>
+                <p class="contact-item">@rowneyjul</p>
+            </div>
+            
+            <p class="footer-text">
+                Media Psikoedukasi Mata Kuliah Kesehatan Mental Kelas 8 
+                Fakultas Psikologi Universitas Diponegoro
+            </p>
+        </div>
+    </footer>
+
+        
+</body>
+<script>
+     document.getElementById("scrolling").addEventListener("click", function () {
+    document.getElementById("questionbang").scrollIntoView({ behavior: 'smooth' });
+});
+
+document.getElementById('submitBtn').addEventListener('click', function() {
+    // Calculate score
+    let score = 0;
+    const totalQuestions = 20; // Update this if question count changes
+    
+    // Check if all questions are answered
+    let allAnswered = true;
+    
+    for (let i = 1; i <= totalQuestions; i++) {
+        const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+        if (!selectedOption) {
+            allAnswered = false;
+            break;
+        }
+        score += parseInt(selectedOption.value);
+    }
+
+    if (!allAnswered) {
+        alert('Silakan jawab semua pertanyaan terlebih dahulu!');
+        return;
+    }
+
+    // Redirect based on score
+    if (score >= 0 && score <= 10) {
+        window.location.href = "low.html";
+    } else if (score >= 11 && score <= 15) {
+        window.location.href = "med.html";
+    } else if (score >= 16 && score <= 20) {
+        window.location.href = "high.html";
+    }
+
+   
+
+});
+
+
+</script>
+</html>
